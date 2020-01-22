@@ -19,18 +19,15 @@ function deleteTodo() {//удалить задачу при нажатии на 
     }
 };
 function performed() {//удалить задачу при нажатии на Удалить
-    for (let pLists of pAll) {
-        pLists.addEventListener('click', function() {
-          /*if (pLists.style.textDecoration == "line-through") { //если случайно отметили выполнение задания
-            pLists.style.textDecoration = "none";
-            event.stopPropagation();
+    for (let li of lists) {
+        li.addEventListener('click', function(e) {
+          if (e.target.tagName === "li"){
+            e.target.classList.toggle('pListClick');
           }
-          else {
-            pLists.style.textDecoration = "line-through";
-          }*/
-          pLists.style.textDecoration = "line-through";
-          event.stopPropagation();
-        })
+          // pLists.style.textDecoration = "line-through";
+          // event.stopPropagation();
+        }, false
+      );
     }
 };
 
