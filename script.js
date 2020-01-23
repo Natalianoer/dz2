@@ -18,18 +18,26 @@ function deleteTodo() {//удалить задачу при нажатии на 
         })
     }
 };
+// function performed() {//удалить задачу при нажатии на Удалить
+//     for (let li of lists) {
+//         li.addEventListener('click', function(e) {
+//           if (e.target.tagName === "li"){
+//             e.target.classList.toggle('pListClick');
+//           }
+//           // pLists.style.textDecoration = "line-through";
+//           // event.stopPropagation();
+//         }, false
+//       );
+//     }
+// };
+
 function performed() {//удалить задачу при нажатии на Удалить
-    for (let li of lists) {
-        li.addEventListener('click', function(e) {
-          if (e.target.tagName === "li"){
-            e.target.classList.toggle('pListClick');
-          }
-          // pLists.style.textDecoration = "line-through";
-          // event.stopPropagation();
-        }, false
-      );
+  ulSpisok.addEventListener('click', function(even) {
+    if (even.target.tagName === 'P') {
+      even.target.classList.toggle('pListClick');
     }
-};
+  }, false);
+}
 
 function loadTodo() {
     if (localStorage.getItem('TodoApplication')) {//добавляем данные
